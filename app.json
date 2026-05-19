@@ -1,29 +1,92 @@
 {
   "expo": {
-    "name": "lpeducatormobile",
-    "slug": "lpeducatormobile",
+    "name": "LP Educator",
+    "slug": "lp-educator",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "scheme": "lpeducator",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0F3D2E"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.lalanpalan.educator",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Used to take photos for student profiles and chat messages.",
+        "NSPhotoLibraryUsageDescription": "Used to select photos for student profiles and chat messages.",
+        "NSMicrophoneUsageDescription": "Required for camera access."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#0F3D2E"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.lalanpalan.educator",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "bundler": "metro",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "35.0.0",
+            "kotlinVersion": "2.0.21",
+            "newArchEnabled": false
+          }
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Used to select photos for profiles and chat.",
+          "cameraPermission": "Used to take photos for profiles and chat."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#1A5C44"
+        }
+      ],
+      "expo-secure-store",
+      "expo-system-ui"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "02acb70c-5639-4829-ba45-8ad8d09762a8"
+      }
+    },
+    "owner": "csamitjain"
   }
 }
